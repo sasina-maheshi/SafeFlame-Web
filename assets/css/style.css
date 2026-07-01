@@ -1,0 +1,79 @@
+:root {
+  --navy: #132436;
+  --coral: #E8593F;
+  --grey: #8B8F94;
+  --bg-light: #F7F7F8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Focus states */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+}
+
+/* Mobile nav */
+#mobile-nav {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+#mobile-nav.open {
+  max-height: 480px;
+}
+
+/* FAQ accordion */
+.faq-icon {
+  transition: transform 0.25s ease;
+}
+.faq-item[data-open="true"] .faq-icon {
+  transform: rotate(45deg);
+}
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.faq-item[data-open="true"] .faq-panel {
+  max-height: 320px;
+}
+
+/* Logo placeholder fallback */
+.logo-fallback {
+  background: var(--navy);
+}
+
+/* Form field error */
+.field-error {
+  display: none;
+}
+.field-invalid .field-error {
+  display: block;
+}
+.field-invalid input,
+.field-invalid textarea,
+.field-invalid select {
+  border-color: #DC2626 !important;
+}
