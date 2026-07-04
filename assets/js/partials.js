@@ -2,7 +2,7 @@
 // Keeps nav/branding consistent without needing a build step.
 
 const NAV_LINKS = [
-  { href: 'index.html', label: 'Home', page: 'home' },
+  { href: 'home.html', label: 'Home', page: 'home' },
   { href: 'product.html', label: 'Product', page: 'product' },
   { href: 'how-it-works.html', label: 'How It Works', page: 'how-it-works' },
   { href: 'pricing.html', label: 'Pricing', page: 'pricing' },
@@ -59,7 +59,7 @@ function buildHeader(activePage) {
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 gap-4">
-        <a href="index.html" class="flex items-center gap-2" aria-label="SafeFlame home">
+        <a href="home.html" class="flex items-center gap-2" aria-label="SafeFlame home">
           ${logoMark('w-9 h-9')}
           <span class="font-bold text-lg tracking-tight"><span class="text-[#132436]">Safe</span><span class="text-[#E8593F]">Flame</span></span>
         </a>
@@ -105,16 +105,16 @@ function buildFooter() {
     <div class="footer-content">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <a href="index.html" class="flex items-center gap-2 mb-3" aria-label="SafeFlame home">
+          <a href="home.html" class="flex items-center gap-2 mb-3" aria-label="SafeFlame home">
             <span class="relative inline-flex w-10 h-10 shrink-0">
-              <img src="assets/images/logo-full.png" alt="SafeFlame - Smart Gas Detection System" class="h-10 w-auto object-contain" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <img src="assets/images/logo-full.png" alt="SafeFlame - Safety That Never Sleeps" class="h-10 w-auto object-contain" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
               <span class="hidden w-10 h-10 items-center justify-center rounded-lg logo-fallback" style="display:none">
                 <svg viewBox="0 0 24 24" class="w-3/5 h-3/5" fill="#E8593F"><path d="M12.5 2c.3 2.4-.7 3.6-2 5-1.6 1.7-2.5 3.1-2.5 5a4 4 0 0 0 8 0c0-1.2-.4-2-1-2.8-.2.9-.6 1.5-1.2 2a2 2 0 1 1-3.1-2.4c1.4-1.6 2.6-3.2 1.8-6.8Z"/></svg>
               </span>
             </span>
             <span class="font-bold text-lg"><span class="text-white">Safe</span><span class="text-[#E8593F]">Flame</span></span>
           </a>
-          <p class="text-sm text-gray-300">Smart Gas Detection System. Know about a gas leak before you smell it.</p>
+          <p class="text-sm text-gray-300">Safety That Never Sleeps.</p>
         </div>
         <div>
           <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-3">Navigate</h3>

@@ -5,7 +5,8 @@ Tailwind CSS (via CDN) + vanilla JS — no build step, no backend.
 
 ## Pages
 
-- `index.html` — Home
+- `index.html` — Splash / landing screen (animated background, links to Home)
+- `home.html` — Home
 - `product.html` — Product
 - `how-it-works.html` — How It Works
 - `pricing.html` — Pricing & pre-order
@@ -15,15 +16,22 @@ Tailwind CSS (via CDN) + vanilla JS — no build step, no backend.
 
 ```
 /index.html
+/home.html
 /product.html
 /how-it-works.html
 /pricing.html
 /contact.html
-/assets/css/style.css      shared styles (reveal animations, focus states, accordion)
-/assets/js/partials.js     shared header/footer, injected into every page
+/assets/css/style.css      shared styles (reveal animations, focus states, accordion, footer starfield, pricing flip card, form fields)
+/assets/css/splash.css     styles for the index.html splash page only
+/assets/js/partials.js     shared header/footer, injected into every page except index.html
 /assets/js/main.js         nav toggle, FAQ accordion, form validation, scroll reveal
 /assets/images/            drop real photos/logos here — see assets/images/README.md
 ```
+
+Note: `index.html` is a standalone splash screen (no shared header/footer, no
+`main.js`/`partials.js`) — the whole card is clickable and links to
+`home.html`, which is the actual marketing homepage and carries the `home`
+nav state.
 
 ## Adding your real images
 

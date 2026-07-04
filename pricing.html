@@ -35,23 +35,25 @@
     </section>
 
     <!-- Pricing card -->
-    <section class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 -mt-8 pb-16">
-      <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden reveal">
-        <div class="bg-navy text-white text-center text-xs font-semibold uppercase tracking-wide py-2">Most Popular</div>
-        <div class="p-8">
-          <h2 class="font-semibold text-lg">SafeFlame Smart Kit</h2>
-          <p class="text-sm text-grey mb-4">Standard Domestic Gas Safety Package</p>
-          <p class="mb-6"><span class="text-4xl font-extrabold">$299</span><span class="text-grey text-sm"> / unit</span></p>
-          <ul class="space-y-3 mb-8 text-sm">
-            <li class="flex items-start gap-2"><svg viewBox="0 0 24 24" class="w-5 h-5 text-coral shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7"/></svg>Precision Gas Sensor Hub</li>
-            <li class="flex items-start gap-2"><svg viewBox="0 0 24 24" class="w-5 h-5 text-coral shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7"/></svg>Real-time Mobile Alerts (iOS/Android)</li>
-            <li class="flex items-start gap-2"><svg viewBox="0 0 24 24" class="w-5 h-5 text-coral shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7"/></svg>Automatic Gas Shut-off Valve Kit</li>
-            <li class="flex items-start gap-2"><svg viewBox="0 0 24 24" class="w-5 h-5 text-coral shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7"/></svg>Integrated 85dB Audio Alarm</li>
-            <li class="flex items-start gap-2"><svg viewBox="0 0 24 24" class="w-5 h-5 text-coral shrink-0" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m5 13 4 4L19 7"/></svg>Battery Backup (Up to 24 hours)</li>
-          </ul>
-          <a href="#preorder-form" class="block text-center rounded-md bg-coral px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#d14a32] transition-colors">Pre-Order Now &rarr;</a>
+    <section class="max-w-md mx-auto px-4 sm:px-6 lg:px-8 -mt-8 pb-16 flex flex-col items-center gap-6 reveal">
+      <span class="inline-block rounded-full bg-navy text-white text-xs font-semibold uppercase tracking-wide px-4 py-2">Most Popular</span>
+
+      <a href="#preorder-form" class="flip-card" aria-label="SafeFlame Smart Kit, $299 per unit. Hover to flip, tap to pre-order.">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <span class="brand-lockup">
+              <img src="assets/images/logo-icon.png" alt="" class="brand-mark-icon">
+              <p class="brand-wordmark">Safe<span>Flame</span></p>
+            </span>
+            <span class="kit-name">Smart Kit</span>
+            <p class="price">$299<span>/unit</span></p>
+          </div>
+          <div class="flip-card-back">
+            <p class="cta-heading">Ready to get protected?</p>
+            <span class="cta">Pre-Order Now &rarr;</span>
+          </div>
         </div>
-      </div>
+      </a>
     </section>
 
     <!-- Warranty / support -->
@@ -98,40 +100,34 @@
             novalidate
             class="space-y-5 scroll-mt-24"
           >
-            <div class="form-field">
-              <label for="preorder-name" class="block text-sm font-medium mb-1">Name with Initials</label>
-              <input type="text" id="preorder-name" name="entry.2014625099" required
-                class="w-full rounded-md border border-gray-200 px-4 py-2.5 text-sm focus:border-coral focus:ring-coral">
+            <div class="form-field input-group">
+              <label for="preorder-name" class="label">Name with Initials</label>
+              <input type="text" id="preorder-name" name="entry.2014625099" required class="input">
               <p class="field-error text-xs text-red-600 mt-1">Please enter your name.</p>
             </div>
-            <div class="form-field">
-              <label for="preorder-phone" class="block text-sm font-medium mb-1">Contact / WhatsApp Number</label>
-              <input type="tel" id="preorder-phone" name="entry.98092034" required
-                class="w-full rounded-md border border-gray-200 px-4 py-2.5 text-sm focus:border-coral focus:ring-coral">
+            <div class="form-field input-group">
+              <label for="preorder-phone" class="label">Contact / WhatsApp Number</label>
+              <input type="tel" id="preorder-phone" name="entry.98092034" required class="input">
               <p class="field-error text-xs text-red-600 mt-1">Please enter a contact number.</p>
             </div>
-            <div class="form-field">
-              <label for="preorder-email" class="block text-sm font-medium mb-1">Email Address</label>
-              <input type="email" id="preorder-email" name="entry.2116899836" required
-                class="w-full rounded-md border border-gray-200 px-4 py-2.5 text-sm focus:border-coral focus:ring-coral">
+            <div class="form-field input-group">
+              <label for="preorder-email" class="label">Email Address</label>
+              <input type="email" id="preorder-email" name="entry.2116899836" required class="input">
               <p class="field-error text-xs text-red-600 mt-1">Please enter a valid email address.</p>
             </div>
-            <div class="form-field">
-              <label for="preorder-address" class="block text-sm font-medium mb-1">Delivery Address</label>
-              <input type="text" id="preorder-address" name="entry.897081347" required
-                class="w-full rounded-md border border-gray-200 px-4 py-2.5 text-sm focus:border-coral focus:ring-coral">
+            <div class="form-field input-group">
+              <label for="preorder-address" class="label">Delivery Address</label>
+              <input type="text" id="preorder-address" name="entry.897081347" required class="input">
               <p class="field-error text-xs text-red-600 mt-1">Please enter your delivery address.</p>
             </div>
-            <div class="form-field">
-              <label for="preorder-city" class="block text-sm font-medium mb-1">City / Town</label>
-              <input type="text" id="preorder-city" name="entry.42789068" required
-                class="w-full rounded-md border border-gray-200 px-4 py-2.5 text-sm focus:border-coral focus:ring-coral">
+            <div class="form-field input-group">
+              <label for="preorder-city" class="label">City / Town</label>
+              <input type="text" id="preorder-city" name="entry.42789068" required class="input">
               <p class="field-error text-xs text-red-600 mt-1">Please enter your city or town.</p>
             </div>
-            <div class="form-field">
-              <label for="preorder-qty" class="block text-sm font-medium mb-1">Quantity</label>
-              <input type="number" id="preorder-qty" name="entry.231441391" min="1" value="1" required
-                class="w-full rounded-md border border-gray-200 px-4 py-2.5 text-sm focus:border-coral focus:ring-coral">
+            <div class="form-field input-group">
+              <label for="preorder-qty" class="label">Quantity</label>
+              <input type="number" id="preorder-qty" name="entry.231441391" min="1" value="1" required class="input">
               <p class="field-error text-xs text-red-600 mt-1">Please enter a quantity of at least 1.</p>
             </div>
             <button type="submit" class="w-full rounded-md bg-coral px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-[#d14a32] transition-colors">Pre-Order Now</button>

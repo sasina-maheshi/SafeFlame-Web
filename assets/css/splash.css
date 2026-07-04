@@ -1,0 +1,89 @@
+/* Splash page only — loaded exclusively by index.html, so these generic
+   selectors (body, .card, .label) cannot collide with the rest of the site. */
+
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* From Uiverse.io — full-screen card reveal effect (recolored to a light
+   brand palette: off-white / light peach / navy text). */
+.card {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #ffffff; /* white */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #132436; /* navy */
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+}
+.card::before,
+.card::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  background-color: #F7B9A2; /* light peach/coral */
+  transition: all 0.5s;
+}
+.card::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 0 0 100%;
+}
+.card::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100% 0 0;
+}
+.card:hover::before,
+.card:hover::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  transition: all 0.5s;
+}
+.card:hover::after {
+  content: "Safety That Never Sleeps";
+  color: #132436; /* navy — readable on the light peach fill */
+  text-align: center;
+  padding: 2rem;
+  font-size: clamp(1.5rem, 5vw, 2.75rem);
+}
+
+/* Card content: logo icon + wordmark, sits underneath the reveal corners */
+.card-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.card-logo {
+  height: 90px;
+  width: auto;
+}
+.card-wordmark {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 800;
+  color: #132436;
+}
+.card-wordmark span {
+  color: #E8593F;
+}
+
+@media (max-width: 480px) {
+  .card-logo { height: 64px; }
+  .card-brand { gap: 0.6rem; }
+}
