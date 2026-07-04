@@ -96,37 +96,44 @@ function buildFooter() {
   ).join('');
 
   return `
-  <footer class="bg-[#132436] text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-      <div>
-        <a href="index.html" class="flex items-center gap-2 mb-3" aria-label="SafeFlame home">
-          <span class="relative inline-flex w-10 h-10 shrink-0">
-            <img src="assets/images/logo-full.png" alt="SafeFlame - Smart Gas Detection System" class="h-10 w-auto object-contain" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <span class="hidden w-10 h-10 items-center justify-center rounded-lg logo-fallback" style="display:none">
-              <svg viewBox="0 0 24 24" class="w-3/5 h-3/5" fill="#E8593F"><path d="M12.5 2c.3 2.4-.7 3.6-2 5-1.6 1.7-2.5 3.1-2.5 5a4 4 0 0 0 8 0c0-1.2-.4-2-1-2.8-.2.9-.6 1.5-1.2 2a2 2 0 1 1-3.1-2.4c1.4-1.6 2.6-3.2 1.8-6.8Z"/></svg>
-            </span>
-          </span>
-          <span class="font-bold text-lg"><span class="text-white">Safe</span><span class="text-[#E8593F]">Flame</span></span>
-        </a>
-        <p class="text-sm text-gray-300">Smart Gas Detection System. Know about a gas leak before you smell it.</p>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-3">Navigate</h3>
-        ${footerLinks}
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-3">Contact</h3>
-        <p class="text-sm text-gray-300 py-1">support@safeflame.tech</p>
-        <p class="text-sm text-gray-300 py-1">+1 (800) SAFE-FLAME</p>
-        <p class="text-sm text-gray-300 py-1">450 Safety Ave, Suite 200<br>Palo Alto, CA 94301</p>
-      </div>
-      <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-3">Follow Us</h3>
-        <div class="flex gap-3">${socials}</div>
-      </div>
+  <footer class="site-footer text-white">
+    <div class="starfield" aria-hidden="true">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
     </div>
-    <div class="border-t border-white/10 py-6 text-center text-xs text-gray-400">
-      &copy; <span id="footer-year"></span> SafeFlame. All rights reserved.
+    <div class="footer-content">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div>
+          <a href="index.html" class="flex items-center gap-2 mb-3" aria-label="SafeFlame home">
+            <span class="relative inline-flex w-10 h-10 shrink-0">
+              <img src="assets/images/logo-full.png" alt="SafeFlame - Smart Gas Detection System" class="h-10 w-auto object-contain" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+              <span class="hidden w-10 h-10 items-center justify-center rounded-lg logo-fallback" style="display:none">
+                <svg viewBox="0 0 24 24" class="w-3/5 h-3/5" fill="#E8593F"><path d="M12.5 2c.3 2.4-.7 3.6-2 5-1.6 1.7-2.5 3.1-2.5 5a4 4 0 0 0 8 0c0-1.2-.4-2-1-2.8-.2.9-.6 1.5-1.2 2a2 2 0 1 1-3.1-2.4c1.4-1.6 2.6-3.2 1.8-6.8Z"/></svg>
+              </span>
+            </span>
+            <span class="font-bold text-lg"><span class="text-white">Safe</span><span class="text-[#E8593F]">Flame</span></span>
+          </a>
+          <p class="text-sm text-gray-300">Smart Gas Detection System. Know about a gas leak before you smell it.</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-3">Navigate</h3>
+          ${footerLinks}
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-3">Contact</h3>
+          <p class="text-sm text-gray-300 py-1">support@safeflame.tech</p>
+          <p class="text-sm text-gray-300 py-1">+1 (800) SAFE-FLAME</p>
+          <p class="text-sm text-gray-300 py-1">450 Safety Ave, Suite 200<br>Palo Alto, CA 94301</p>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-3">Follow Us</h3>
+          <div class="flex gap-3">${socials}</div>
+        </div>
+      </div>
+      <div class="border-t border-white/10 py-6 text-center text-xs text-gray-400">
+        &copy; <span id="footer-year"></span> SafeFlame. All rights reserved.
+      </div>
     </div>
   </footer>`;
 }
