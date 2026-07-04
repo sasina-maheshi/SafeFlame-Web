@@ -36,48 +36,52 @@
 
     <!-- 4-step process -->
     <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-      <ol class="relative border-l-2 border-gray-100 space-y-12 ml-5">
-        <li class="reveal">
-          <div class="absolute -left-[27px] w-13 h-13 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center" style="width:52px;height:52px;">
-            <svg viewBox="0 0 24 24" class="w-5 h-5 text-coral" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12a3.5 3.5 0 1 1 7 0m-9.9 0a6.4 6.4 0 0 1 12.8 0M2.5 12a9.5 9.5 0 0 1 19 0"/></svg>
-          </div>
-          <div class="pl-10">
-            <span class="text-xs font-semibold tracking-wide uppercase text-coral">Step 01</span>
-            <h3 class="text-xl font-semibold mt-1 mb-2">Sensor Watches</h3>
-            <p class="text-grey text-sm">The SafeFlame module utilizes industrial-grade electrochemical sensors to continuously monitor ambient air quality near gas fixtures 24/7.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <div class="absolute -left-[27px] rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center" style="width:52px;height:52px;">
-            <svg viewBox="0 0 24 24" class="w-5 h-5 text-coral" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
-          </div>
-          <div class="pl-10">
-            <span class="text-xs font-semibold tracking-wide uppercase text-coral">Step 02</span>
-            <h3 class="text-xl font-semibold mt-1 mb-2">Gas Detected</h3>
-            <p class="text-grey text-sm">If combustible gas levels exceed a threshold of 5% LEL, our edge-computing processor validates the signal in milliseconds to eliminate false positives.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <div class="absolute -left-[27px] rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center" style="width:52px;height:52px;">
-            <svg viewBox="0 0 24 24" class="w-5 h-5 text-coral" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 0 0-4-5.65V5a2 2 0 1 0-4 0v.35A6 6 0 0 0 6 11v3.2a2 2 0 0 1-.6 1.4L4 17h5m6 0v1a3 3 0 1 1-6 0v-1m6 0H9"/></svg>
-          </div>
-          <div class="pl-10">
-            <span class="text-xs font-semibold tracking-wide uppercase text-coral">Step 03</span>
-            <h3 class="text-xl font-semibold mt-1 mb-2">Alarm Sounds</h3>
-            <p class="text-grey text-sm">An 85dB internal siren activates immediately while the LED indicator pulses coral, providing both audible and visual warnings for occupants.</p>
-          </div>
-        </li>
-        <li class="reveal">
-          <div class="absolute -left-[27px] rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center" style="width:52px;height:52px;">
-            <svg viewBox="0 0 24 24" class="w-5 h-5 text-coral" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor"/><path stroke-linecap="round" d="M11 18h2"/></svg>
-          </div>
-          <div class="pl-10">
-            <span class="text-xs font-semibold tracking-wide uppercase text-coral">Step 04</span>
-            <h3 class="text-xl font-semibold mt-1 mb-2">Phone Notified</h3>
-            <p class="text-grey text-sm">Simultaneously, a push notification is sent to all registered devices via encrypted Wi-Fi, letting you monitor the situation from anywhere in the world.</p>
-          </div>
-        </li>
-      </ol>
+      <div class="relative ml-5">
+        <span class="step-line step-line-base" aria-hidden="true"></span>
+        <span class="step-line step-line-progress" id="step-line-progress" aria-hidden="true"></span>
+        <ol class="relative space-y-12">
+          <li class="step-reveal" style="--step-delay:0ms">
+            <div class="absolute -left-[27px] w-13 h-13 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center" style="width:52px;height:52px;">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-coral" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 12a3.5 3.5 0 1 1 7 0m-9.9 0a6.4 6.4 0 0 1 12.8 0M2.5 12a9.5 9.5 0 0 1 19 0"/></svg>
+            </div>
+            <div class="pl-10">
+              <span class="text-xs font-semibold tracking-wide uppercase text-coral">Step 01</span>
+              <h3 class="text-xl font-semibold mt-1 mb-2">Sensor Watches</h3>
+              <p class="text-grey text-sm">The SafeFlame module utilizes industrial-grade electrochemical sensors to continuously monitor ambient air quality near gas fixtures 24/7.</p>
+            </div>
+          </li>
+          <li class="step-reveal" style="--step-delay:100ms">
+            <div class="absolute -left-[27px] rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center" style="width:52px;height:52px;">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-coral" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/></svg>
+            </div>
+            <div class="pl-10">
+              <span class="text-xs font-semibold tracking-wide uppercase text-coral">Step 02</span>
+              <h3 class="text-xl font-semibold mt-1 mb-2">Gas Detected</h3>
+              <p class="text-grey text-sm">If combustible gas levels exceed a threshold of 5% LEL, our edge-computing processor validates the signal in milliseconds to eliminate false positives.</p>
+            </div>
+          </li>
+          <li class="step-reveal" style="--step-delay:200ms">
+            <div class="absolute -left-[27px] rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center" style="width:52px;height:52px;">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-coral" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0 1 18 14.2V11a6 6 0 0 0-4-5.65V5a2 2 0 1 0-4 0v.35A6 6 0 0 0 6 11v3.2a2 2 0 0 1-.6 1.4L4 17h5m6 0v1a3 3 0 1 1-6 0v-1m6 0H9"/></svg>
+            </div>
+            <div class="pl-10">
+              <span class="text-xs font-semibold tracking-wide uppercase text-coral">Step 03</span>
+              <h3 class="text-xl font-semibold mt-1 mb-2">Alarm Sounds</h3>
+              <p class="text-grey text-sm">An 85dB internal siren activates immediately while the LED indicator pulses coral, providing both audible and visual warnings for occupants.</p>
+            </div>
+          </li>
+          <li class="step-reveal" style="--step-delay:300ms">
+            <div class="absolute -left-[27px] rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center" style="width:52px;height:52px;">
+              <svg viewBox="0 0 24 24" class="w-5 h-5 text-coral" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor"/><path stroke-linecap="round" d="M11 18h2"/></svg>
+            </div>
+            <div class="pl-10">
+              <span class="text-xs font-semibold tracking-wide uppercase text-coral">Step 04</span>
+              <h3 class="text-xl font-semibold mt-1 mb-2">Phone Notified</h3>
+              <p class="text-grey text-sm">Simultaneously, a push notification is sent to all registered devices via encrypted Wi-Fi, letting you monitor the situation from anywhere in the world.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </section>
 
     <!-- FAQ -->

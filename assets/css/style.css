@@ -24,6 +24,34 @@ body {
   transform: translateY(0);
 }
 
+/* How It Works — step timeline scroll reveal (separate from .reveal above so
+   it can have its own trigger point and stagger delay) */
+.step-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: var(--step-delay, 0ms);
+}
+.step-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.step-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+}
+.step-line-base {
+  height: 100%;
+  background: #f3f4f6;
+}
+.step-line-progress {
+  height: 0%;
+  background: var(--coral);
+  transition: height 0.6s ease;
+}
+
 /* Focus states */
 a:focus-visible,
 button:focus-visible,

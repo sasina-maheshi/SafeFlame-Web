@@ -16,6 +16,33 @@ function initReveal() {
   items.forEach((item) => observer.observe(item));
 }
 
+// How It Works — step timeline scroll reveal (separate from initReveal so it
+// can trigger earlier and stagger the connecting line progress)
+function initStepReveal() {
+  const steps = document.querySelectorAll('.step-reveal');
+  if (!steps.length) return;
+  const progressLine = document.getElementById('step-line-progress');
+  const total = steps.length;
+  let revealedCount = 0;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealedCount++;
+          if (progressLine) {
+            progressLine.style.height = (revealedCount / total) * 100 + '%';
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0, rootMargin: '0px 0px -20% 0px' }
+  );
+  steps.forEach((step) => observer.observe(step));
+}
+
 // FAQ accordion
 function initFaq() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -103,6 +130,7 @@ function initPreorderForm() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initReveal();
+  initStepReveal();
   initFaq();
   initContactForm();
   initPreorderForm();
