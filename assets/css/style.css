@@ -52,6 +52,46 @@ body {
   transition: height 0.6s ease;
 }
 
+/* Contact page — cards fade/slide in on load (alternating sides), social
+   icons get a wiggle on hover instead of the glow/lift used elsewhere */
+@keyframes contactSlideLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes contactSlideRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.contact-card {
+  animation: contactSlideLeft 0.6s ease both;
+}
+.contact-card:nth-child(even) {
+  animation-name: contactSlideRight;
+}
+.contact-card:nth-child(1) { animation-delay: 0.05s; }
+.contact-card:nth-child(2) { animation-delay: 0.15s; }
+.contact-card:nth-child(3) { animation-delay: 0.25s; }
+
+@keyframes socialWiggle {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-14deg) scale(1.15); }
+  50% { transform: rotate(10deg) scale(1.15); }
+  75% { transform: rotate(-6deg) scale(1.08); }
+  100% { transform: rotate(0deg) scale(1.08); }
+}
+.social-icon:hover {
+  animation: socialWiggle 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-card {
+    animation: none;
+  }
+  .social-icon:hover {
+    animation: none;
+  }
+}
+
 /* Focus states */
 a:focus-visible,
 button:focus-visible,
