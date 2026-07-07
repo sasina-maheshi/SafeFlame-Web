@@ -12,7 +12,7 @@ const NAV_LINKS = [
 const SOCIAL_LINKS = [
   {
     name: 'Facebook',
-    href: 'https://www.facebook.com/share/18Wf7aBiTu/',
+    href: 'https://www.facebook.com/profile.php?id=61590805951491',
     svg: '<path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z"/>',
   },
   {
@@ -22,12 +22,12 @@ const SOCIAL_LINKS = [
   },
   {
     name: 'WhatsApp',
-    href: '#',
+    href: 'https://wa.me/94786300042',
     svg: '<path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.13-1.34A10 10 0 1 0 12 2Zm0 18.1a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.05.8.82-2.97-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.46-6.06c-.24-.12-1.43-.7-1.65-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.53.06-.24-.12-1.03-.38-1.96-1.2-.72-.65-1.21-1.44-1.35-1.68-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.56.2-1.04.14-1.15-.06-.1-.22-.16-.46-.28Z"/>',
   },
   {
     name: 'TikTok',
-    href: '#',
+    href: 'https://vm.tiktok.com/ZS96p8YTg5E8S-rsPwr/',
     svg: '<path d="M16.6 2h-3.2v13.2a2.9 2.9 0 1 1-2.05-2.77V9.13a6.1 6.1 0 1 0 5.25 6.04V8.3a7.9 7.9 0 0 0 4.6 1.47V6.55A4.7 4.7 0 0 1 16.6 2Z"/>',
   },
 ];
@@ -122,9 +122,10 @@ function buildFooter() {
         </div>
         <div>
           <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-3">Contact</h3>
-          <p class="text-sm text-gray-300 py-1">support@safeflame.tech</p>
-          <p class="text-sm text-gray-300 py-1">+1 (800) SAFE-FLAME</p>
-          <p class="text-sm text-gray-300 py-1">450 Safety Ave, Suite 200<br>Palo Alto, CA 94301</p>
+          <a href="mailto:safeflame11@gmail.com" class="block text-sm text-gray-300 hover:text-[#E8593F] transition-colors py-1">safeflame11@gmail.com</a>
+          <a href="tel:+94786300042" class="block text-sm text-gray-300 hover:text-[#E8593F] transition-colors py-1">+94 78 630 00 42</a>
+          <a href="https://wa.me/94786300042" target="_blank" rel="noopener noreferrer" class="block text-sm text-gray-300 hover:text-[#E8593F] transition-colors py-1">Chat on WhatsApp</a>
+          <p class="text-sm text-gray-300 py-1">Mendis Waththa,<br>Hunupitiya Road, Kelaniya</p>
         </div>
         <div>
           <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-400 mb-3">Follow Us</h3>
