@@ -95,11 +95,53 @@ body {
   animation: socialWiggle 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
+/* Product page — "At Home" / "Away From Home" comparison cards */
+@keyframes compareFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.compare-card {
+  animation: compareFadeUp 0.6s ease both;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+.compare-card:nth-child(1) { animation-delay: 0ms; }
+.compare-card:nth-child(2) { animation-delay: 130ms; }
+/* Load-in animation is removed once it finishes (see main.js) so the hover
+   transform below isn't overridden by the animation's persisting end state. */
+.compare-card.settled {
+  animation: none;
+}
+.compare-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(19, 36, 54, 0.14);
+}
+.compare-card .compare-icon {
+  transition: transform 0.28s ease;
+}
+.compare-card:hover .compare-icon {
+  transform: scale(1.1);
+}
+.compare-card.accent-navy {
+  border-color: var(--navy);
+}
+.compare-card.accent-navy:hover {
+  border-color: #0d1b28;
+}
+.compare-card.accent-coral {
+  border-color: var(--coral);
+}
+.compare-card.accent-coral:hover {
+  border-color: #d14a32;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .contact-card {
     animation: none;
   }
   .social-icon:hover {
+    animation: none;
+  }
+  .compare-card {
     animation: none;
   }
 }
