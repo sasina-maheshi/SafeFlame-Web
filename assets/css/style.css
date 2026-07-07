@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Scroll reveal */
@@ -64,6 +64,8 @@ body {
 }
 .contact-card {
   animation: contactSlideLeft 0.6s ease both;
+  border: 1px solid rgba(139, 143, 148, 0.25);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 .contact-card:nth-child(even) {
   animation-name: contactSlideRight;
@@ -71,6 +73,16 @@ body {
 .contact-card:nth-child(1) { animation-delay: 0.05s; }
 .contact-card:nth-child(2) { animation-delay: 0.15s; }
 .contact-card:nth-child(3) { animation-delay: 0.25s; }
+/* Load-in animation is removed once it finishes (see main.js) so the hover
+   transform below isn't overridden by the animation's persisting end state. */
+.contact-card.settled {
+  animation: none;
+}
+.contact-card:hover {
+  border-color: var(--coral);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(19, 36, 54, 0.14);
+}
 
 @keyframes socialWiggle {
   0% { transform: rotate(0deg) scale(1); }

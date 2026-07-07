@@ -43,6 +43,18 @@ function initStepReveal() {
   steps.forEach((step) => observer.observe(step));
 }
 
+// Contact page cards — once the load-in animation finishes, remove it so the
+// hover lift/border transition (which shares the transform property) isn't
+// overridden by the animation's persisting end state.
+function initContactCardSettle() {
+  const cards = document.querySelectorAll('.contact-card');
+  cards.forEach((card) => {
+    card.addEventListener('animationend', () => {
+      card.classList.add('settled');
+    }, { once: true });
+  });
+}
+
 // FAQ accordion
 function initFaq() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -131,6 +143,7 @@ function initPreorderForm() {
 document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initStepReveal();
+  initContactCardSettle();
   initFaq();
   initContactForm();
   initPreorderForm();
