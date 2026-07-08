@@ -44,13 +44,13 @@ function logoMark(sizeClasses) {
 
 function buildHeader(activePage) {
   const links = NAV_LINKS.map(
-    (l) => `<a href="${l.href}" class="text-sm font-medium transition-colors hover:text-[#E8593F] ${
+    (l) => `<a href="${l.href}" class="text-base font-medium transition-colors hover:text-[#E8593F] ${
       l.page === activePage ? 'text-[#E8593F]' : 'text-[#132436]'
     }">${l.label}</a>`
   ).join('');
 
   const mobileLinks = NAV_LINKS.map(
-    (l) => `<a href="${l.href}" class="block px-4 py-3 text-sm font-medium border-b border-white/10 ${
+    (l) => `<a href="${l.href}" class="block px-4 py-3 text-base font-medium border-b border-white/10 ${
       l.page === activePage ? 'text-[#E8593F]' : 'text-white'
     }">${l.label}</a>`
   ).join('');
@@ -58,27 +58,27 @@ function buildHeader(activePage) {
   return `
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 gap-4">
+      <div class="flex items-center justify-between h-20 gap-4">
         <a href="home.html" class="flex items-center gap-2" aria-label="SafeFlame home">
-          ${logoMark('w-9 h-9')}
-          <span class="font-bold text-lg tracking-tight"><span class="text-[#132436]">Safe</span><span class="text-[#E8593F]">Flame</span></span>
+          ${logoMark('w-11 h-11')}
+          <span class="font-bold text-xl tracking-tight"><span class="text-[#132436]">Safe</span><span class="text-[#E8593F]">Flame</span></span>
         </a>
         <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
           ${links}
         </nav>
         <div class="hidden md:block">
-          <a href="pricing.html" class="inline-flex items-center rounded-md bg-[#E8593F] px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#d14a32] transition-colors">Get Pricing</a>
+          <a href="pricing.html" class="inline-flex items-center rounded-md bg-[#E8593F] px-5 py-2.5 text-base font-semibold text-white shadow-sm hover:bg-[#d14a32] transition-colors">Pre-Order Now</a>
         </div>
-        <button id="nav-toggle" type="button" class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-[#132436]" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation menu">
-          <svg id="nav-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg id="nav-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        <button id="nav-toggle" type="button" class="md:hidden inline-flex items-center justify-center rounded-md p-2.5 text-[#132436]" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation menu">
+          <svg id="nav-icon-open" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="nav-icon-close" class="hidden h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
     </div>
     <nav id="mobile-nav" class="md:hidden bg-[#132436]" aria-label="Mobile">
       ${mobileLinks}
       <div class="p-4">
-        <a href="pricing.html" class="block text-center rounded-md bg-[#E8593F] px-4 py-2 text-sm font-semibold text-white">Get Pricing</a>
+        <a href="pricing.html" class="block text-center rounded-md bg-[#E8593F] px-5 py-2.5 text-base font-semibold text-white">Pre-Order Now</a>
       </div>
     </nav>
   </header>`;
