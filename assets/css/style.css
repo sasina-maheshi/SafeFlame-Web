@@ -16,13 +16,20 @@ body {
 /* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
+/* Stagger reveals inside a group: add .stagger to the grid/flex parent and
+   its .reveal children cascade in ~100ms apart (reuses the same observer). */
+.stagger > .reveal:nth-child(2) { transition-delay: 0.1s; }
+.stagger > .reveal:nth-child(3) { transition-delay: 0.2s; }
+.stagger > .reveal:nth-child(4) { transition-delay: 0.3s; }
+.stagger > .reveal:nth-child(5) { transition-delay: 0.4s; }
+.stagger > .reveal:nth-child(6) { transition-delay: 0.5s; }
 
 /* How It Works — step timeline scroll reveal (separate from .reveal above so
    it can have its own trigger point and stagger delay) */
@@ -806,7 +813,7 @@ select:focus-visible {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.8s;
+  transition: transform 0.4s ease-in-out;
   transform-style: preserve-3d;
 }
 .flip-card:hover .flip-card-inner {
@@ -925,4 +932,150 @@ select:focus-visible {
 }
 .input-group:hover .label, .input:focus {
   color: #132436c2;
+}
+
+/* Hero photo carousel (home + product) — slides advance right-to-left every
+   5s (see initHeroCarousels in main.js), dark gradient overlay keeps the
+   left-aligned text legible over every image. */
+.hero-carousel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--navy); /* shows if an image fails to load */
+  height: 100vh;
+  height: 100svh; /* small-viewport units: no gap from mobile browser bars */
+  display: flex;
+  align-items: center;
+}
+.hero-slides {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: translateX(100%);
+  transition: none;
+}
+.hero-slide.is-active,
+.hero-slide.is-prev {
+  transition: transform 0.8s ease-in-out;
+}
+.hero-slide.is-active {
+  transform: translateX(0);
+}
+.hero-slide.is-prev {
+  transform: translateX(-100%);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  /* soft vignette over a left-heavy near-black-navy gradient */
+  background:
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 55%, rgba(5, 10, 16, 0.35) 100%),
+    linear-gradient(to right, rgba(5, 10, 16, 0.7) 0%, rgba(5, 10, 16, 0.55) 45%, rgba(5, 10, 16, 0.2) 100%);
+}
+.hero-dots {
+  position: absolute;
+  bottom: 1.5rem;
+  display: flex;
+  gap: 0.6rem;
+  z-index: 1;
+}
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.45);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.hero-dot:hover {
+  background: rgba(255, 255, 255, 0.75);
+}
+.hero-dot.is-active {
+  background: var(--coral);
+  transform: scale(1.2);
+}
+
+/* Transparent overlay header on full-viewport hero pages (body.hero-page,
+   i.e. home + product). Fixed over the hero so the images run edge-to-edge
+   from the very top; main.js adds .is-scrolled past ~40px of scroll, which
+   restores the header's normal solid Tailwind styling. */
+.hero-page #site-header header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.hero-page #site-header header:not(.is-scrolled) {
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+/* Navy-colored header items (nav links, "Safe" wordmark, hamburger) turn
+   white while the header is transparent; active/coral items keep coral. */
+.hero-page #site-header header:not(.is-scrolled) [class~="text-[#132436]"] {
+  color: #ffffff;
+}
+.hero-page #site-header header:not(.is-scrolled) nav [class~="text-[#132436]"]:hover {
+  color: var(--coral);
+}
+
+/* Card hover lift — shared polish for static info cards site-wide */
+.lift-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.lift-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(19, 36, 54, 0.14);
+  border-color: var(--coral);
+}
+
+/* Solid coral buttons lift slightly on hover (color darkening is handled by
+   each button's existing Tailwind hover class) */
+a[class~="bg-coral"],
+button[class~="bg-coral"],
+a[class~="bg-[#E8593F]"] {
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+a[class~="bg-coral"]:hover,
+button[class~="bg-coral"]:hover,
+a[class~="bg-[#E8593F]"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(232, 89, 63, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .step-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-slide.is-active,
+  .hero-slide.is-prev {
+    transition: none;
+  }
+  .hero-page #site-header header {
+    transition: none;
+  }
+  .lift-card,
+  .lift-card:hover,
+  a[class~="bg-coral"]:hover,
+  button[class~="bg-coral"]:hover,
+  a[class~="bg-[#E8593F]"]:hover {
+    transform: none;
+  }
 }

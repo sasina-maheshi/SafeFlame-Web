@@ -35,7 +35,7 @@ const SOCIAL_LINKS = [
 function logoMark(sizeClasses) {
   return `
     <span class="relative inline-flex ${sizeClasses} shrink-0">
-      <img src="assets/images/logo-icon.png" alt="" class="${sizeClasses} object-contain" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <img src="assets/images/logo-trans.png" alt="" class="${sizeClasses} object-contain" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <span class="hidden ${sizeClasses} items-center justify-center rounded-lg logo-fallback" style="display:none">
         <svg viewBox="0 0 24 24" class="w-3/5 h-3/5" fill="#E8593F"><path d="M12.5 2c.3 2.4-.7 3.6-2 5-1.6 1.7-2.5 3.1-2.5 5a4 4 0 0 0 8 0c0-1.2-.4-2-1-2.8-.2.9-.6 1.5-1.2 2a2 2 0 1 1-3.1-2.4c1.4-1.6 2.6-3.2 1.8-6.8Z"/></svg>
       </span>
@@ -63,19 +63,19 @@ function buildHeader(activePage) {
           ${logoMark('w-11 h-11')}
           <span class="font-bold text-xl tracking-tight"><span class="text-[#132436]">Safe</span><span class="text-[#E8593F]">Flame</span></span>
         </a>
-        <nav class="hidden md:flex items-center gap-8" aria-label="Primary">
+        <nav class="hidden lg:flex items-center gap-8" aria-label="Primary">
           ${links}
         </nav>
-        <div class="hidden md:block">
-          <a href="pricing.html" class="inline-flex items-center rounded-md bg-[#E8593F] px-5 py-2.5 text-base font-semibold text-white shadow-sm hover:bg-[#d14a32] transition-colors">Pre-Order Now</a>
+        <div class="hidden lg:block">
+          <a href="pricing.html" class="inline-flex items-center whitespace-nowrap rounded-md bg-[#E8593F] px-5 py-2.5 text-base font-semibold text-white shadow-sm hover:bg-[#d14a32] transition-colors">Pre-Order Now</a>
         </div>
-        <button id="nav-toggle" type="button" class="md:hidden inline-flex items-center justify-center rounded-md p-2.5 text-[#132436]" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation menu">
+        <button id="nav-toggle" type="button" class="lg:hidden inline-flex items-center justify-center rounded-md p-2.5 text-[#132436]" aria-controls="mobile-nav" aria-expanded="false" aria-label="Toggle navigation menu">
           <svg id="nav-icon-open" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
           <svg id="nav-icon-close" class="hidden h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
     </div>
-    <nav id="mobile-nav" class="md:hidden bg-[#132436]" aria-label="Mobile">
+    <nav id="mobile-nav" class="lg:hidden bg-[#132436]" aria-label="Mobile">
       ${mobileLinks}
       <div class="p-4">
         <a href="pricing.html" class="block text-center rounded-md bg-[#E8593F] px-5 py-2.5 text-base font-semibold text-white">Pre-Order Now</a>

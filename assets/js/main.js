@@ -55,6 +55,81 @@ function initCardSettle(selector) {
   });
 }
 
+// Hero photo carousel (home + product) — auto-advances every 5s, slides
+// right-to-left (CSS .is-active / .is-prev classes), clickable dots, and
+// respects prefers-reduced-motion by pausing auto-advance.
+function initHeroCarousels() {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+    const slides = Array.from(carousel.querySelectorAll('.hero-slide'));
+    if (slides.length < 2) return;
+    const dotsWrap = carousel.querySelector('.hero-dots');
+    let current = 0;
+    let timer = null;
+
+    const dots = slides.map((_, i) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'hero-dot' + (i === 0 ? ' is-active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1) + ' of ' + slides.length);
+      if (i === 0) dot.setAttribute('aria-current', 'true');
+      dot.addEventListener('click', () => {
+        goTo(i);
+        start(); // reset the 5s clock after manual navigation
+      });
+      if (dotsWrap) dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    function goTo(next) {
+      if (next === current) return;
+      const prev = current;
+      current = next;
+
+      slides[prev].classList.remove('is-active');
+      slides[prev].classList.add('is-prev');
+      slides[next].classList.remove('is-prev');
+      slides[next].classList.add('is-active');
+      // After the slide-out finishes, drop .is-prev so the slide snaps back
+      // (transition: none in base state) to the off-screen right position.
+      setTimeout(() => slides[prev].classList.remove('is-prev'), 850);
+
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('is-active', i === current);
+        if (i === current) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+    }
+
+    function start() {
+      stop();
+      if (reduceMotion.matches) return;
+      timer = setInterval(() => goTo((current + 1) % slides.length), 5000);
+    }
+    function stop() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    reduceMotion.addEventListener('change', start);
+    start();
+  });
+}
+
+// Full-viewport hero pages (body.hero-page): the fixed header starts
+// transparent over the hero and solidifies after ~40px of scroll.
+function initOverlayHeader() {
+  if (!document.body.classList.contains('hero-page')) return;
+  const header = document.querySelector('#site-header header');
+  if (!header) return;
+  const update = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+}
+
 // FAQ accordion
 function initFaq() {
   const faqItems = document.querySelectorAll('.faq-item');
@@ -145,6 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initStepReveal();
   initCardSettle('.contact-card');
   initCardSettle('.compare-card');
+  initHeroCarousels();
+  initOverlayHeader();
   initFaq();
   initContactForm();
   initPreorderForm();
