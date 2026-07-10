@@ -71,7 +71,7 @@ body {
 }
 .contact-card {
   animation: contactSlideLeft 0.6s ease both;
-  border: 1px solid rgba(139, 143, 148, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
 }
 .contact-card:nth-child(even) {
@@ -87,8 +87,8 @@ body {
 }
 .contact-card:hover {
   border-color: var(--coral);
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(19, 36, 54, 0.14);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(19, 36, 54, 0.08);
 }
 
 @keyframes socialWiggle {
@@ -119,8 +119,8 @@ body {
   animation: none;
 }
 .compare-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(19, 36, 54, 0.14);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(19, 36, 54, 0.08);
 }
 .compare-card .compare-icon {
   transition: transform 0.28s ease;
@@ -1009,28 +1009,38 @@ select:focus-visible {
 
 /* Transparent overlay header on full-viewport hero pages (body.hero-page,
    i.e. home + product). Fixed over the hero so the images run edge-to-edge
-   from the very top; main.js adds .is-scrolled past ~40px of scroll, which
-   restores the header's normal solid Tailwind styling. */
+   from the very top; main.js adds .scrolled past 50px of scroll, which
+   switches the header to a solid white background. */
 .hero-page #site-header header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.hero-page #site-header header:not(.is-scrolled) {
+.hero-page #site-header header:not(.scrolled) {
   background-color: transparent;
   border-color: transparent;
+  box-shadow: none;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
+.hero-page #site-header header.scrolled {
+  background-color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
 /* Navy-colored header items (nav links, "Safe" wordmark, hamburger) turn
    white while the header is transparent; active/coral items keep coral. */
-.hero-page #site-header header:not(.is-scrolled) [class~="text-[#132436]"] {
+.hero-page #site-header header:not(.scrolled) [class~="text-[#132436]"] {
   color: #ffffff;
 }
-.hero-page #site-header header:not(.is-scrolled) nav [class~="text-[#132436]"]:hover {
+.hero-page #site-header header:not(.scrolled) nav [class~="text-[#132436]"]:hover {
   color: var(--coral);
+}
+.hero-page #site-header header [class~="text-[#132436]"],
+.hero-page #site-header header [class~="text-[#E8593F]"] {
+  transition: color 0.3s ease;
 }
 
 /* Card hover lift — shared polish for static info cards site-wide */
@@ -1038,8 +1048,8 @@ select:focus-visible {
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .lift-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(19, 36, 54, 0.14);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(19, 36, 54, 0.08);
   border-color: var(--coral);
 }
 

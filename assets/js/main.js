@@ -120,12 +120,12 @@ function initHeroCarousels() {
 }
 
 // Full-viewport hero pages (body.hero-page): the fixed header starts
-// transparent over the hero and solidifies after ~40px of scroll.
+// transparent over the hero and solidifies after 50px of scroll.
 function initOverlayHeader() {
   if (!document.body.classList.contains('hero-page')) return;
   const header = document.querySelector('#site-header header');
   if (!header) return;
-  const update = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
+  const update = () => header.classList.toggle('scrolled', window.scrollY > 50);
   window.addEventListener('scroll', update, { passive: true });
   update();
 }
